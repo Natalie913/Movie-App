@@ -7,7 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { sinIn, signUpProvider, forgetPassword } = useAuth()
+  const { signIn, signUpProvider, forgetPassword } = useAuth()
 
   const handleSubmit = (e) => {
     e.preventDefault()
