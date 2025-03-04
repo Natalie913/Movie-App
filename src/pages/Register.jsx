@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
@@ -7,13 +7,13 @@ export default function Register () {
     const [name, setName] = useState('')
     const [lastName,setLastName]= useState('')
     const [email, setEmail] = useState('')
-    const [Password, setPassword]= useState('')
+    const [password, setPassword]= useState('')
 
     const { registerUser, signUpProvider } = useAuth()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const displayName = '${name} ${lastName}'
+        const displayName = `${name} ${lastName}`
         registerUser(email, Password, displayName)
     }
     return (

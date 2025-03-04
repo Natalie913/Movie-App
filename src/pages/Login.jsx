@@ -11,7 +11,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    sinIn(email, password)
+    signIn(email, password)
   }
 
   return (

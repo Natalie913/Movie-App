@@ -1,3 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@theme {
+  --gray-dark-main: #23242a;
+  --gray-dark-second: #28292d;
+  --gray-light: #d3dce6;
+  --red-main: #ff4b45;
+}
+
+@layer theme, base, components, utilities;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gray-dark-main: #23242a;
+  --color-gray-dark-second: #28292d;
+  --color-gray-light: #d3dce6;
+  --color-red-main: #ff4b45;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+  }
+
+  input {
+    @apply block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-red-main appearance-none dark:text-white dark:border-red-main dark:focus:border-red-main focus:outline-none focus:ring-0 focus:border-red-main;
+  }
+
+  label {
+    @apply peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-main peer-focus:dark:text-red-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6;
+  }
+}
+
+@layer components {
+  .btn-danger {
+    @apply focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4  font-medium 
+    rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900;
+  }
+
+  .btn-danger-bordered {
+    @apply text-red-main hover:text-white border-2 border-red-main hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-main dark:text-red-main dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900;
+  }
+}
+
+/* Login */
+.custom-linear-gradient::before {
+  background: linear-gradient(0deg, transparent, #ff4b45);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+.custom-linear-gradient::after {
+  background: linear-gradient(0deg, transparent, #ff4b45);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.movie {
+  background-color: #080f36;
+  border-radius: 3px;
+  box-shadow: 4px 4px 5px rgba(63, 60, 60, 0.5);
+  overflow: hidden;
+  margin: 1rem;
+  width: 300px;
+  height: 510px;
+  position: relative;
+  cursor: pointer;
+}
+
+.movie img {
+  object-fit: cover;
+  height: 450px;
+  width: 100%;
+}
+
+.movie-over {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  max-height: 100%;
+  overflow: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+.movie:hover .movie-over {
+  transform: translateX(0%);
+}
+
+.tag {
+  border-radius: 5px;
+  padding: 0.7rem;
+  font-weight: bold;
+  width: 3rem;
+  text-align: center;
+}
+
+.tag.green {
+  background-color: green;
+}
+.tag.red {
+  background-color: red;
+}
+.tag.orange {
+  background-color: orange;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0px 0px #28292d inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
