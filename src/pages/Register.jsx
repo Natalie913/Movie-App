@@ -14,7 +14,7 @@ export default function Register () {
     const handleSubmit = (e) => {
         e.preventDefault()
         const displayName = `${name} ${lastName}`
-        registerUser(email, Password, displayName)
+        registerUser(email, password, displayName)
     }
     return (
         <div className='overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main'>
