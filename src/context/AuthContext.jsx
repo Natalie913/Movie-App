@@ -65,9 +65,9 @@ export const AuthProvider = ({ children}) => {
     const userObserver = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                const { email, displayName, photoUrl } = user
+                 setCurrentUser(user)
             } else {
-                setCurrentUser (false)
+                setCurrentUser (null)
             }
         })
     }
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children}) => {
     const signUpProvider = async () => {
         try{
             const provider = new GoogleAuthProvider()
-            await signInWithPopup( auth, provider)
+           const result = await signInWithPopup( auth, provider)
             navigate('/')
             toast.success('Signed In Successfully')
         } catch (error){
@@ -90,8 +90,9 @@ export const AuthProvider = ({ children}) => {
     }
 
     //Sign Out
-    const logOut = () => {
-        signOut(auth)
+    const logOut = async () => {
+       await signOut(auth)
+       setCurrentUser(null)
         console.log('Logged out Successfully!')
         navigate('/')
     }
