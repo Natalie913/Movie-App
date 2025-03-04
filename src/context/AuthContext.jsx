@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { initializeApp } from 'firebase/app'
-import { firebaseConfig } from '../config/firebase'
+import { firebaseConfig } from '../config/firebase.js'
 import{
     createUserWithEmailAndPassword,
     getAuth,

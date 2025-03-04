@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { GoSun } from ' react-icons/go'
+import { GoSun } from 'react-icons/go'
 import { IoMoon } from 'react-icons/io5'
-import { GoSomeIcon } from "react-icons/go"
+
 
 export default function Switch() {
     const [darkMode, setDarkMode] = useState(false)
